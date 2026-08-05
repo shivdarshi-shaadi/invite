@@ -42,6 +42,42 @@
       </g>
       <circle cx="100" cy="100" r="8" fill="none" stroke="currentColor" stroke-width="0.6"/>
     </g>
+
+    <g id="monogram-shape">
+      <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text x="60" y="72" font-family="'Great Vibes', cursive" font-size="40" text-anchor="middle" fill="currentColor">D &amp; S</text>
+    </g>
+
+    <g id="paisley-shape">
+      <path d="M20 4 C30 4 34 14 26 20 C20 24 22 30 30 30 C24 36 10 34 8 24 C6 16 12 12 18 12 C12 12 8 9 10 5 C12 2 16 2 20 4 Z" fill="currentColor"/>
+      <circle cx="21" cy="17" r="2.2" fill="#fff"/>
+    </g>
+
+    <g id="icon-mehndi">
+      <path d="M20 10 L44 34 L34 44 L10 20 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="46" cy="46" r="2" fill="currentColor"/>
+      <circle cx="53" cy="40" r="1.6" fill="currentColor"/>
+      <circle cx="40" cy="53" r="1.6" fill="currentColor"/>
+    </g>
+
+    <g id="icon-haldi">
+      <path d="M16 40 Q32 52 48 40 L44 47 Q32 57 20 47 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M32 9 C37 17 37 26 32 35 C27 26 27 17 32 9 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M32 35 C39 30 43 24 43 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M32 35 C25 30 21 24 21 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+
+    <g id="icon-mandap">
+      <path d="M12 54 V28 M52 54 V28 M12 28 L32 10 L52 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M20 54 V34 M44 54 V34" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="8" y1="54" x2="56" y2="54" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <g id="icon-phera">
+      <circle cx="24" cy="36" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="40" cy="36" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M32 10 C36 16 36 20 32 24 C28 20 28 16 32 10 Z" fill="currentColor"/>
+    </g>
   </defs>
 </svg>
 
@@ -49,7 +85,9 @@
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#home" class="nav-logo">SD</a>
+    <a href="#home" class="nav-logo" aria-label="Darshita and Shivam, home">
+      <svg class="nav-logo-mark" viewBox="0 0 120 120"><use href="#monogram-shape"></use></svg>
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -57,6 +95,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#story">Our Story</a></li>
       <li><a href="#events">Events</a></li>
+      <li><a href="#rituals">Rituals</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#rsvp">RSVP</a></li>
     </ul>
@@ -64,6 +103,7 @@
 </nav>
 
 <header class="hero" id="home">
+  <div class="hero-photo-bg"></div>
   <div class="hero-glow"></div>
   <svg class="hero-mandala hero-mandala--1" viewBox="0 0 200 200"><use href="#mandala-shape"></use></svg>
   <svg class="hero-mandala hero-mandala--2" viewBox="0 0 200 200"><use href="#mandala-shape"></use></svg>
@@ -76,6 +116,7 @@
       <span class="reveal-up" style="--d:0.4s">Shivam</span>
     </h1>
     <p class="hero-hashtag reveal-up" style="--d:0.55s">#ShivDarshi</p>
+    <p class="hero-gujarati reveal-up" style="--d:0.62s">શુભ વિવાહ <span>&middot; Auspicious Wedding</span></p>
     <p class="hero-dates reveal-up" style="--d:0.7s">7 &ndash; 9 January 2027 &bull; Venue to be announced</p>
 
     <div class="countdown reveal-up" style="--d:0.85s" id="countdown" aria-label="Countdown to the wedding celebrations">
@@ -95,51 +136,120 @@
 <main>
 
 <section class="section story" id="story">
-  <div class="section-inner">
+  <div class="section-inner story-inner">
     <svg class="mandala-reveal mandala-reveal--left" viewBox="0 0 200 200"><use href="#mandala-shape"></use></svg>
-    <p class="eyebrow fade-up">Our Story</p>
-    <h2 class="section-title fade-up">A little bit of forever, still being written</h2>
-    <p class="story-text fade-up">
-      This is where your love story goes &mdash; how you met, that first conversation, the moment you knew.
-      Swap in your real story here before you publish; for now, picture two people, one beautiful
-      coincidence, and a lot of laughter along the way.
-    </p>
-    <div class="story-divider fade-up"><span></span><svg viewBox="0 0 24 24" class="story-divider-icon"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2.3 4 6 4c2 0 3.6 1.1 4.6 2.6C11.6 5.1 13.2 4 15.2 4c3.7 0 5.6 4.1 4 7.7C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg><span></span></div>
+    <div class="story-photo-frame fade-up"><div class="story-photo"></div></div>
+    <div class="story-copy">
+      <p class="eyebrow fade-up">Our Story</p>
+      <h2 class="section-title fade-up">A little bit of forever, still being written</h2>
+      <p class="story-text fade-up">
+        This is where your love story goes &mdash; how you met, that first conversation, the moment you knew.
+        Swap in your real story here before you publish; for now, picture two people, one beautiful
+        coincidence, and a lot of laughter along the way.
+      </p>
+      <div class="story-divider fade-up"><span></span><svg viewBox="0 0 24 24" class="story-divider-icon"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.1 2.3 4 6 4c2 0 3.6 1.1 4.6 2.6C11.6 5.1 13.2 4 15.2 4c3.7 0 5.6 4.1 4 7.7C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg><span></span></div>
+    </div>
   </div>
 </section>
 
 <section class="section events" id="events">
+  <div class="events-photo-bg"></div>
   <div class="section-inner">
-    <p class="eyebrow fade-up">Save the Date</p>
+    <p class="eyebrow fade-up">પધારો &bull; You're Warmly Invited</p>
     <h2 class="section-title fade-up">Three Days of Celebration</h2>
 
-    <div class="timeline">
-      <div class="event-card fade-up">
-        <div class="event-icon">🌿</div>
-        <span class="event-date">7 January 2027</span>
-        <h3>Mehndi</h3>
-        <p>An afternoon of henna, music and dance to kick off the festivities.</p>
-        <span class="event-venue">Venue to be announced</span>
+    <div class="vtimeline">
+      <div class="timeline-day fade-up">
+        <h3 class="timeline-day-heading">7 January 2027 <span>Day One</span></h3>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-entry-content">
+            <span class="timeline-time">Afternoon</span>
+            <h4>Mehndi</h4>
+            <p>An afternoon of intricate henna, laughter and music as Darshita's hands are adorned ahead of the big day.</p>
+            <span class="event-venue">Venue to be announced</span>
+          </div>
+        </div>
       </div>
 
-      <div class="event-card fade-up">
-        <div class="event-icon">🌼</div>
-        <span class="event-date">8 January 2027</span>
-        <h3>Haldi &amp; Mandap Muhurat</h3>
-        <p>Turmeric rituals and the auspicious mandap muhurat ceremony.</p>
-        <span class="event-venue">Venue to be announced</span>
+      <div class="timeline-day fade-up">
+        <h3 class="timeline-day-heading">8 January 2027 <span>Day Two</span></h3>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-entry-content">
+            <span class="timeline-time">Morning</span>
+            <h4>Haldi</h4>
+            <p>A joyful turmeric ceremony blessing the couple with warmth, radiance and good fortune before the wedding.</p>
+            <span class="event-venue">Venue to be announced</span>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-entry-content">
+            <span class="timeline-time">Midday</span>
+            <h4>Mandap Muhurat</h4>
+            <p>The sacred mandap is consecrated at an auspicious moment, guided by the family priest.</p>
+            <span class="event-venue">Venue to be announced</span>
+          </div>
+        </div>
       </div>
 
-      <div class="event-card fade-up">
-        <div class="event-icon">💍</div>
-        <span class="event-date">9 January 2027</span>
-        <h3>Wedding</h3>
-        <p>Darshita &amp; Shivam tie the knot &mdash; join us to celebrate their forever.</p>
-        <span class="event-venue">Venue to be announced</span>
+      <div class="timeline-day fade-up">
+        <h3 class="timeline-day-heading">9 January 2027 <span>Day Three</span></h3>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-entry-content">
+            <span class="timeline-time">Evening</span>
+            <h4>Wedding</h4>
+            <p>Darshita &amp; Shivam take their seven pheras and begin their forever, surrounded by everyone they love.</p>
+            <span class="event-venue">Venue to be announced</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="section rituals bandhani-bg" id="rituals">
+  <div class="section-inner">
+    <svg class="mandala-reveal mandala-reveal--left" viewBox="0 0 200 200"><use href="#mandala-shape"></use></svg>
+    <p class="eyebrow fade-up">The Traditions</p>
+    <h2 class="section-title fade-up">Rituals, Explained</h2>
+    <p class="rituals-intro fade-up">A little guide to the customs you'll see us celebrate.</p>
+
+    <div class="rituals-grid">
+      <div class="ritual-card fade-up">
+        <svg class="ritual-icon" viewBox="0 0 64 64"><use href="#icon-mehndi"></use></svg>
+        <h3>Mehndi</h3>
+        <p>Intricate henna patterns are painted onto the bride's hands and feet, believed to bring beauty, joy and good luck into married life.</p>
+      </div>
+      <div class="ritual-card fade-up">
+        <svg class="ritual-icon" viewBox="0 0 64 64"><use href="#icon-haldi"></use></svg>
+        <h3>Haldi</h3>
+        <p>Turmeric paste is applied to the couple as a blessing for glowing skin and to ward off evil before the wedding.</p>
+      </div>
+      <div class="ritual-card fade-up">
+        <svg class="ritual-icon" viewBox="0 0 64 64"><use href="#icon-mandap"></use></svg>
+        <h3>Mandap Muhurat</h3>
+        <p>The sacred wedding canopy is consecrated at an astrologically auspicious moment, marking the true start of the ceremony.</p>
+      </div>
+      <div class="ritual-card fade-up">
+        <svg class="ritual-icon" viewBox="0 0 64 64"><use href="#icon-phera"></use></svg>
+        <h3>The Pheras</h3>
+        <p>The couple take seven sacred rounds around the holy fire, each step a vow for the life they'll build together.</p>
+      </div>
+    </div>
+
+    <div class="story-divider fade-up"><span></span><svg viewBox="0 0 32 32" class="story-divider-icon paisley-icon"><use href="#paisley-shape"></use></svg><span></span></div>
+  </div>
+</section>
+
+<div class="photo-banner fade-up">
+  <div class="photo-banner-photo"></div>
+  <div class="photo-banner-overlay">
+    <p class="photo-banner-text">Three days, so much love</p>
+  </div>
+</div>
 
 <section class="section gallery" id="gallery">
   <div class="section-inner">
@@ -148,17 +258,20 @@
     <h2 class="section-title fade-up">Moments &amp; Memories</h2>
     <p class="gallery-hint fade-up">Photos coming soon &mdash; this gallery is ready whenever you are.</p>
     <div class="gallery-grid">
-      <div class="gallery-frame fade-up"><span>📷</span></div>
-      <div class="gallery-frame fade-up"><span>📷</span></div>
-      <div class="gallery-frame fade-up"><span>📷</span></div>
-      <div class="gallery-frame fade-up"><span>📷</span></div>
-      <div class="gallery-frame fade-up"><span>📷</span></div>
-      <div class="gallery-frame fade-up"><span>📷</span></div>
+      <div class="gallery-frame gallery-frame--large fade-up" style="--photo:url('images/gallery-1.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-2.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-3.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-4.jpg')"></div>
+      <div class="gallery-frame gallery-frame--large fade-up" style="--photo:url('images/gallery-5.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-6.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-7.jpg')"></div>
+      <div class="gallery-frame fade-up" style="--photo:url('images/gallery-8.jpg')"></div>
     </div>
   </div>
 </section>
 
 <section class="section rsvp" id="rsvp">
+  <div class="rsvp-photo"></div>
   <div class="section-inner">
     <p class="eyebrow fade-up">We Can't Wait to Celebrate With You</p>
     <h2 class="section-title fade-up">RSVP</h2>
@@ -173,6 +286,7 @@
 </main>
 
 <footer class="footer">
+  <svg class="footer-mark" viewBox="0 0 120 120"><use href="#monogram-shape"></use></svg>
   <p class="footer-hashtag">#ShivDarshi</p>
   <p class="footer-note">Made with love for Darshita &amp; Shivam &bull; 2027</p>
 </footer>

@@ -73,7 +73,7 @@ setInterval(updateCountdown, 1000);
 
 // ---------- Falling petals ----------
 const petalsLayer = document.getElementById('petalsLayer');
-const petalColors = ['#d4af37', '#f3d576', '#e3c7e8', '#fdfaf3'];
+const petalColors = ['#c9a66b', '#e4c98f', '#9b8bc4', '#a9b39e'];
 
 function createPetal() {
   const petal = document.createElement('div');
