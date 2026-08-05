@@ -112,7 +112,7 @@ ul { list-style: none; }
   justify-content: space-between;
 }
 .nav-logo { display: block; }
-.nav-logo-mark { width: 48px; height: 48px; object-fit: contain; }
+.nav-logo-mark { width: 56px; height: 47px; }
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -281,34 +281,6 @@ ul { list-style: none; }
   color: var(--lavender);
   font-size: 0.8rem;
   letter-spacing: 1px;
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 26px;
-  height: 42px;
-  border: 2px solid var(--gold-light);
-  border-radius: 20px;
-  z-index: 2;
-}
-.scroll-cue span {
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  animation: scrollDot 1.6s ease infinite;
-}
-@keyframes scrollDot {
-  0% { opacity: 1; top: 6px; }
-  70% { opacity: 0; top: 24px; }
-  100% { opacity: 0; top: 6px; }
 }
 
 /* ---------- Reveal animations ---------- */
@@ -624,9 +596,8 @@ ul { list-style: none; }
   padding: 2.5rem 1rem;
 }
 .footer-mark {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
+  width: 120px;
+  height: 100px;
   margin: 0 auto 1rem;
   display: block;
 }
