@@ -112,7 +112,7 @@ ul { list-style: none; }
   justify-content: space-between;
 }
 .nav-logo { display: block; }
-.nav-logo-mark { width: 56px; height: 47px; }
+.nav-logo-mark { width: 64px; height: 48px; object-fit: contain; }
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -596,8 +596,9 @@ ul { list-style: none; }
   padding: 2.5rem 1rem;
 }
 .footer-mark {
-  width: 120px;
-  height: 100px;
+  width: 150px;
+  height: 112px;
+  object-fit: contain;
   margin: 0 auto 1rem;
   display: block;
 }
