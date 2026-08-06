@@ -475,13 +475,7 @@ ul { list-style: none; }
   font-family: var(--font-heading);
   font-size: 1.5rem;
   color: var(--lilac-dark);
-  margin: 0.3rem 0 0.5rem;
-}
-.timeline-entry-content p {
-  font-size: 0.9rem;
-  color: #5c4f6b;
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
+  margin: 0.3rem 0 0.8rem;
 }
 .event-venue {
   display: inline-block;
