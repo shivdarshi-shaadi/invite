@@ -100,3 +100,18 @@ setInterval(createPetal, 500);
 for (let i = 0; i < 6; i++) {
   setTimeout(createPetal, i * 300);
 }
+
+// ---------- Disposable camera gate ----------
+// Opens once the celebrations begin (same start as the countdown)
+function updateCameraGate() {
+  const cameraText = document.getElementById('cameraText');
+  const cameraActions = document.getElementById('cameraActions');
+  if (!cameraText || !cameraActions) return;
+
+  if (Date.now() >= weddingDate) {
+    cameraText.textContent = "Tap below to open your camera and add your shots to our shared album!";
+    cameraActions.style.display = '';
+  }
+}
+
+updateCameraGate();
