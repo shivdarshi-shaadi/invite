@@ -229,17 +229,9 @@ ul { list-style: none; }
 .hero-gujarati {
   color: var(--gold);
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
   margin-top: 0.5rem;
-}
-.hero-gujarati span {
-  color: var(--lavender);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  font-style: italic;
-  margin-left: 0.3rem;
 }
 .hero-dates {
   color: var(--ivory);
@@ -323,6 +315,12 @@ ul { list-style: none; }
   letter-spacing: 3px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+.eyebrow-gujarati {
+  font-family: var(--font-heading);
+  text-transform: none;
+  letter-spacing: 0.5px;
+  font-size: 1.3rem;
 }
 .section-title {
   font-family: var(--font-heading);
