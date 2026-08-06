@@ -195,7 +195,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(30, 24, 42, 0.97) 0%, rgba(30, 24, 42, 0.96) 65%, rgba(35, 28, 48, 0.6) 78%, rgba(45, 36, 62, 0.2) 92%, transparent 100%);
+  background: linear-gradient(to top, rgba(30, 24, 42, 0.55) 0%, rgba(30, 24, 42, 0.4) 40%, rgba(35, 28, 48, 0.2) 60%, rgba(45, 36, 62, 0.08) 80%, transparent 100%);
 }
 .hero-glow {
   position: absolute;
@@ -247,6 +247,7 @@ ul { list-style: none; }
   font-size: 2rem;
   letter-spacing: 1px;
   margin-top: 0.6rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-gujarati {
   color: var(--gold-light);
@@ -255,6 +256,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: 1px;
   margin-top: 0.6rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-dates {
   color: var(--ivory);
@@ -263,6 +265,7 @@ ul { list-style: none; }
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .countdown {
   display: flex;
@@ -284,18 +287,21 @@ ul { list-style: none; }
   font-size: 2rem;
   font-weight: 600;
   color: var(--gold-light);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.85);
 }
 .countdown-box small {
   color: var(--lavender);
   font-size: 0.75rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 .countdown-label {
   margin-top: 1rem;
   color: var(--lavender);
   font-size: 0.8rem;
   letter-spacing: 1px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* ---------- Reveal animations ---------- */
