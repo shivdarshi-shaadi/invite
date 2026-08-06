@@ -249,11 +249,13 @@ ul { list-style: none; }
   margin: 0.1em 0;
 }
 .hero-hashtag {
+  width: fit-content;
+  margin: 0.6rem 1.6rem 0 auto;
   color: var(--gold-light);
   font-family: var(--font-script);
   font-size: 2rem;
   letter-spacing: 1px;
-  margin-top: 0.6rem;
+  text-align: center;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-gujarati {
