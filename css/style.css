@@ -181,7 +181,7 @@ ul { list-style: none; }
   overflow: hidden;
   text-align: center;
   padding-top: 6rem;
-  padding-bottom: 8vh;
+  padding-bottom: 11vh;
 }
 .hero-photo-bg {
   position: absolute;
@@ -195,7 +195,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(66, 54, 89, 0.35), rgba(139, 122, 179, 0.2));
+  background: linear-gradient(to top, rgba(30, 24, 42, 0.97) 0%, rgba(30, 24, 42, 0.96) 65%, rgba(35, 28, 48, 0.6) 78%, rgba(45, 36, 62, 0.2) 92%, transparent 100%);
 }
 .hero-glow {
   position: absolute;
@@ -227,11 +227,7 @@ ul { list-style: none; }
   z-index: 2;
   width: 100%;
   max-width: 640px;
-  margin: 0 1.2rem;
-  padding: 2.6rem 1.6rem 2.2rem;
-  border-radius: 28px;
-  background: rgba(35, 28, 48, 0.97);
-  box-shadow: 0 20px 60px rgba(20, 15, 30, 0.35);
+  padding: 0 1.6rem;
 }
 .hero-names {
   font-family: var(--font-script);
@@ -247,25 +243,26 @@ ul { list-style: none; }
   margin: 0 0.15em;
 }
 .hero-hashtag {
-  color: var(--gold);
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  letter-spacing: 2px;
-  margin-top: 0.8rem;
+  color: var(--gold-light);
+  font-family: var(--font-script);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-top: 0.6rem;
 }
 .hero-gujarati {
-  color: var(--gold);
+  color: var(--gold-light);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
   letter-spacing: 1px;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 .hero-dates {
   color: var(--ivory);
-  opacity: 0.9;
-  margin-top: 0.6rem;
-  font-size: 1.1rem;
-  font-weight: 500;
+  opacity: 1;
+  margin-top: 0.7rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 .countdown {
