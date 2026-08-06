@@ -189,7 +189,7 @@ ul { list-style: none; }
   z-index: 0;
   background: url('../images/hero.jpg'), linear-gradient(160deg, var(--lilac-dark), var(--lilac) 45%, var(--lilac-mid));
   background-size: cover;
-  background-position: center 78%;
+  background-position: 65% 78%;
 }
 .hero-photo-bg::after {
   content: '';
@@ -234,12 +234,14 @@ ul { list-style: none; }
   font-size: clamp(3rem, 10vw, 6.5rem);
   line-height: 1.15;
   text-shadow: 0 4px 30px rgba(0,0,0,0.25);
+  text-align: right;
 }
-.hero-names span { display: inline-block; }
+.hero-names span { display: block; }
 .hero-amp {
+  display: block;
   color: var(--lavender);
   font-size: 0.7em;
-  margin: 0 0.15em;
+  margin: 0.1em 0;
 }
 .hero-hashtag {
   color: var(--gold-light);
