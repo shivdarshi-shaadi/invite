@@ -592,35 +592,6 @@ ul { list-style: none; }
 }
 
 
-/* ---------- Photo banner (mid-page) ---------- */
-.photo-banner {
-  position: relative;
-  height: clamp(340px, 60vw, 640px);
-  overflow: hidden;
-}
-.photo-banner-photo {
-  position: absolute;
-  inset: 0;
-  background: url('../images/banner.jpg'), linear-gradient(135deg, var(--lilac-mid), var(--lilac-light));
-  background-size: cover;
-  background-position: center;
-}
-.photo-banner-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 8%;
-  background: linear-gradient(180deg, rgba(45, 36, 62, 0.1) 0%, rgba(45, 36, 62, 0.2) 40%, rgba(45, 36, 62, 0.88) 100%);
-}
-.photo-banner-text {
-  font-family: var(--font-script);
-  color: var(--ivory);
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
 /* ---------- Disposable Camera ---------- */
 .camera {
   position: relative;
