@@ -253,7 +253,7 @@ ul { list-style: none; }
   margin: 0.6rem 1.6rem 0 auto;
   color: var(--gold-light);
   font-family: var(--font-script);
-  font-size: 2rem;
+  font-size: 2.8rem;
   letter-spacing: 1px;
   text-align: center;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -437,9 +437,16 @@ ul { list-style: none; }
 /* ---------- Scattered photo accent ---------- */
 .moment-accent {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 1rem 1.5rem 2.5rem;
   background: var(--ivory);
+}
+.moment-caption {
+  margin-top: 1rem;
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--lilac);
 }
 .moment-photo-frame {
   width: clamp(140px, 20vw, 190px);
@@ -650,7 +657,8 @@ ul { list-style: none; }
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--lilac-dark);
+  background: #241d30;
+  border-top: 1px solid rgba(228, 201, 143, 0.3);
   color: var(--lavender);
   text-align: center;
   padding: 2.5rem 1rem;
