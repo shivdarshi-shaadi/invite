@@ -466,7 +466,7 @@ ul { list-style: none; }
   height: 100%;
   border-radius: 50%;
   border: 3px solid var(--ivory);
-  background-image: var(--photo), linear-gradient(145deg, var(--lilac-mid), var(--lilac-light));
+  background-image: url('../images/moment-1.jpg'), linear-gradient(145deg, var(--lilac-mid), var(--lilac-light));
   background-size: cover;
   background-position: center;
 }
