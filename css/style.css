@@ -117,7 +117,7 @@ ul { list-style: none; }
   justify-content: space-between;
 }
 .nav-logo { display: block; }
-.nav-logo-mark { width: 64px; height: 48px; object-fit: contain; }
+.nav-logo-mark { width: 84px; height: 63px; object-fit: contain; }
 .nav-tagline {
   position: absolute;
   left: 50%;
