@@ -552,15 +552,6 @@ ul { list-style: none; }
   color: var(--lilac-dark);
   margin: 0.3rem 0 0.8rem;
 }
-.event-venue {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-  padding: 0.3rem 0.9rem;
-}
-
 .venue-card {
   text-align: left;
   margin-top: 0.4rem;
