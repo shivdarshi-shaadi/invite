@@ -262,6 +262,10 @@ ul { list-style: none; }
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-gujarati {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   color: var(--gold-light);
   font-family: var(--font-heading);
   font-size: 1.6rem;
@@ -269,6 +273,14 @@ ul { list-style: none; }
   letter-spacing: 1px;
   margin-top: 0.6rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+.hero-shree-mark {
+  height: 1.4em;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+.hero-shree-mark:last-child {
+  transform: scaleX(-1);
 }
 .hero-dates {
   color: var(--ivory);
