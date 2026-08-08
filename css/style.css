@@ -262,23 +262,12 @@ ul { list-style: none; }
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-gujarati {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
   color: var(--gold-light);
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 1px;
   margin-top: 0.6rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
-}
-.hero-shree-text {
-  font-family: 'Yatra One', cursive;
-  font-weight: 400;
-  font-size: 1.15em;
-  color: var(--gold-light);
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-dates {
