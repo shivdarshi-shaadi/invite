@@ -422,6 +422,12 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center top;
 }
+.story-tagline {
+  font-family: var(--font-script);
+  font-size: 1.7rem;
+  color: var(--gold);
+  margin: -0.8rem 0 1.3rem;
+}
 .story-text {
   font-size: 1.05rem;
   line-height: 1.9;
