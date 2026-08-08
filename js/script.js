@@ -137,13 +137,12 @@ function updateCameraGate() {
 
 updateCameraGate();
 
-// ---------- Delight interactions (parallax + cursor sparkles) ----------
-// Skipped on touch devices and when the user prefers reduced motion.
+// ---------- Delight interactions (parallax + falling star trail) ----------
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
+// Hero parallax only makes sense with a hovering mouse; skipped on touch.
 if (!prefersReducedMotion && isFinePointer) {
-  // Hero parallax: layers drift slightly opposite the cursor for depth.
   const heroEl = document.getElementById('home');
   const parallaxLayers = heroEl ? heroEl.querySelectorAll('[data-parallax]') : [];
   let parallaxRaf = null;
@@ -173,18 +172,58 @@ if (!prefersReducedMotion && isFinePointer) {
       });
     });
   }
+}
 
-  // Cursor sparkle trail
-  let lastSpark = 0;
-  window.addEventListener('mousemove', (e) => {
-    const now = performance.now();
-    if (now - lastSpark < 60) return;
-    lastSpark = now;
-    const spark = document.createElement('div');
-    spark.className = 'cursor-spark';
-    spark.style.left = e.clientX + 'px';
-    spark.style.top = e.clientY + 'px';
+// Falling star trail: works for both mouse (desktop) and finger drag (touch).
+if (!prefersReducedMotion) {
+  const sparkColors = ['var(--gold-light)', 'var(--gold)', 'var(--lilac-light)'];
+  const starPath = 'M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z';
+
+  function spawnSpark(x, y) {
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const spark = document.createElementNS(svgNS, 'svg');
+    spark.setAttribute('viewBox', '0 0 24 24');
+    spark.classList.add('cursor-spark');
+    const path = document.createElementNS(svgNS, 'path');
+    path.setAttribute('d', starPath);
+    path.setAttribute('fill', 'currentColor');
+    spark.appendChild(path);
+
+    const size = 8 + Math.random() * 8;
+    const drift = (Math.random() - 0.5) * 40;
+    spark.style.left = x + 'px';
+    spark.style.top = y + 'px';
+    spark.style.setProperty('--spark-size', size + 'px');
+    spark.style.setProperty('--spark-dx', drift + 'px');
+    spark.style.setProperty('--spark-color', sparkColors[Math.floor(Math.random() * sparkColors.length)]);
+
     document.body.appendChild(spark);
-    setTimeout(() => spark.remove(), 700);
-  });
+    setTimeout(() => spark.remove(), 1000);
+  }
+
+  let lastSpark = 0;
+  const SPARK_INTERVAL = 55;
+
+  function maybeSpawn(x, y) {
+    const now = performance.now();
+    if (now - lastSpark < SPARK_INTERVAL) return;
+    lastSpark = now;
+    spawnSpark(x, y);
+  }
+
+  if (isFinePointer) {
+    window.addEventListener('mousemove', (e) => maybeSpawn(e.clientX, e.clientY));
+  }
+
+  // Touch devices: trail follows the finger while dragging, plus a small
+  // burst on tap. Passive listeners so scrolling is never blocked.
+  window.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    if (t) spawnSpark(t.clientX, t.clientY);
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    if (t) maybeSpawn(t.clientX, t.clientY);
+  }, { passive: true });
 }
