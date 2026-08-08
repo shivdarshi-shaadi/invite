@@ -127,15 +127,28 @@ for (let i = 0; i < 6; i++) {
 function updateCameraGate() {
   const cameraText = document.getElementById('cameraText');
   const cameraActions = document.getElementById('cameraActions');
+  const cameraOpensBadge = document.getElementById('cameraOpensBadge');
   if (!cameraText || !cameraActions) return;
 
-  if (Date.now() >= weddingDate) {
+  const distance = weddingDate - Date.now();
+
+  if (distance <= 0) {
     cameraText.textContent = "Tap below to open your camera and add your shots to our shared album!";
     cameraActions.style.display = '';
+    if (cameraOpensBadge) cameraOpensBadge.textContent = '';
+    return;
+  }
+
+  if (cameraOpensBadge) {
+    const daysLeft = Math.ceil(distance / (1000 * 60 * 60 * 24));
+    cameraOpensBadge.textContent = daysLeft <= 1
+      ? 'Opens tomorrow'
+      : `Opens in ${daysLeft} days`;
   }
 }
 
 updateCameraGate();
+setInterval(updateCameraGate, 60000);
 
 // ---------- Delight interactions (parallax + falling star trail) ----------
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

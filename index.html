@@ -224,12 +224,27 @@
 
 <section class="section camera" id="camera">
   <div class="camera-photo"></div>
+
+  <div class="camera-polaroids" aria-hidden="true">
+    <div class="camera-polaroid camera-polaroid--1"><img src="images/story.jpg" alt=""></div>
+    <div class="camera-polaroid camera-polaroid--2"><img src="images/moment-1.jpg" alt=""></div>
+    <div class="camera-polaroid camera-polaroid--3"><img src="images/hero.jpg" alt=""></div>
+  </div>
+
   <div class="section-inner">
-    <p class="eyebrow fade-up">Capture The Moment</p>
-    <h2 class="section-title fade-up">Guest Disposable Camera</h2>
-    <p class="camera-text fade-up" id="cameraText">Our disposable camera opens once the celebrations begin on 7 January 2027 &mdash; check back then to start snapping and share your shots with us!</p>
-    <div class="camera-actions fade-up" id="cameraActions" style="display:none;">
-      <a href="#" class="btn btn-primary" id="cameraBtn">Open Camera</a>
+    <div class="camera-card fade-up">
+      <svg class="camera-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 3 L7.5 5.5 H4.5A1.5 1.5 0 0 0 3 7v11a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 18V7a1.5 1.5 0 0 0-1.5-1.5h-3L15 3Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        <circle cx="12" cy="12.5" r="4" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="18" cy="9" r="0.9" fill="currentColor"/>
+      </svg>
+      <p class="eyebrow">Capture The Moment</p>
+      <h2 class="section-title">Guest Disposable Camera</h2>
+      <p class="camera-opens-badge" id="cameraOpensBadge" aria-hidden="true"></p>
+      <p class="camera-text" id="cameraText">Our disposable camera opens once the celebrations begin on 7 January 2027 &mdash; check back then to start snapping and share your shots with us!</p>
+      <div class="camera-actions" id="cameraActions" style="display:none;">
+        <a href="#" class="btn btn-primary" id="cameraBtn">Open Camera</a>
+      </div>
     </div>
   </div>
 </section>
