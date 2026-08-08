@@ -139,9 +139,6 @@ ul { list-style: none; }
   height: 3.6em;
   width: auto;
 }
-.nav-tagline-mark:last-child {
-  transform: scaleX(-1);
-}
 .navbar.scrolled .nav-tagline { color: var(--lilac); }
 .nav-links {
   display: flex;
