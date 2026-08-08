@@ -192,11 +192,13 @@ ul { list-style: none; }
 }
 .hero-photo-bg {
   position: absolute;
-  inset: 0;
+  inset: -1.5%;
   z-index: 0;
   background: url('../images/hero.jpg'), linear-gradient(160deg, var(--lilac-dark), var(--lilac) 45%, var(--lilac-mid));
   background-size: cover;
   background-position: 65% 78%;
+  transform: translate(var(--px, 0px), var(--py, 0px));
+  transition: transform 0.2s ease-out;
 }
 .hero-photo-bg::after {
   content: '';
@@ -212,12 +214,12 @@ ul { list-style: none; }
   background: radial-gradient(circle, rgba(201,166,107,0.18), transparent 60%);
   top: -30vmax;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translate(var(--px, 0px), var(--py, 0px));
   animation: pulseGlow 8s ease-in-out infinite;
 }
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) translate(var(--px, 0px), var(--py, 0px)) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) translate(var(--px, 0px), var(--py, 0px)) scale(1.08); }
 }
 .hero-mandala {
   position: absolute;
@@ -226,8 +228,16 @@ ul { list-style: none; }
   width: 60vmin;
   height: 60vmin;
 }
-.hero-mandala--1 { top: -12vmin; left: -14vmin; animation: spin 60s linear infinite; }
-.hero-mandala--2 { bottom: -16vmin; right: -14vmin; animation: spin 80s linear infinite reverse; }
+.hero-mandala--1 { top: -12vmin; left: -14vmin; animation: heroSpin1 60s linear infinite; }
+.hero-mandala--2 { bottom: -16vmin; right: -14vmin; animation: heroSpin2 80s linear infinite reverse; }
+@keyframes heroSpin1 {
+  from { transform: translate(var(--px, 0px), var(--py, 0px)) rotate(0deg); }
+  to { transform: translate(var(--px, 0px), var(--py, 0px)) rotate(360deg); }
+}
+@keyframes heroSpin2 {
+  from { transform: translate(var(--px, 0px), var(--py, 0px)) rotate(0deg); }
+  to { transform: translate(var(--px, 0px), var(--py, 0px)) rotate(360deg); }
+}
 
 .hero-content {
   position: relative;
@@ -686,6 +696,183 @@ ul { list-style: none; }
   margin-bottom: 0.4rem;
 }
 .footer-note { font-size: 0.8rem; opacity: 0.7; }
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--lilac-light));
+  background-size: 200% 100%;
+  z-index: 200;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(228, 201, 143, 0.6);
+}
+
+/* ---------- Shimmer text ---------- */
+.shimmer-text {
+  background: linear-gradient(100deg, var(--gold) 30%, var(--gold-light) 45%, #fff 50%, var(--gold-light) 55%, var(--gold) 70%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold-light);
+  animation: shimmerSweep 5s ease-in-out infinite;
+}
+@keyframes shimmerSweep {
+  0% { background-position: 200% 0; }
+  60%, 100% { background-position: -50% 0; }
+}
+
+/* ---------- Hero sparkles ---------- */
+.hero-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-sparkle {
+  position: absolute;
+  left: var(--sx);
+  top: var(--sy);
+  width: 14px;
+  height: 14px;
+  color: var(--gold-light);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(228, 201, 143, 0.8));
+  animation: sparkleTwinkle 3.6s ease-in-out infinite;
+  animation-delay: var(--sd);
+}
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(90deg); }
+}
+
+/* ---------- Cursor sparkle trail ---------- */
+.cursor-spark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-light), var(--gold));
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform, opacity;
+  animation: sparkFade 0.7s ease-out forwards;
+}
+@keyframes sparkFade {
+  0% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2) translateY(14px); }
+}
+
+/* ---------- Section title underline draw-in ---------- */
+.section-title { position: relative; }
+.section-title::after {
+  content: '';
+  display: block;
+  margin: 0.6rem auto 0;
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 0.8s ease 0.15s, opacity 0.8s ease 0.15s;
+}
+.section-title.in-view::after { transform: scaleX(1); opacity: 1; }
+
+/* ---------- Timeline shimmer ---------- */
+.vtimeline::before {
+  background: linear-gradient(var(--gold), var(--lilac-light), var(--gold));
+  background-size: 100% 200%;
+  animation: timelineFlow 6s linear infinite;
+}
+@keyframes timelineFlow {
+  0% { background-position: 0 0%; }
+  100% { background-position: 0 200%; }
+}
+.timeline-dot {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-entry:hover .timeline-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px var(--ivory), 0 0 0 6px var(--gold), 0 0 14px rgba(201, 166, 107, 0.7);
+}
+.timeline-entry-content {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.timeline-entry-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px rgba(66, 54, 89, 0.2);
+}
+
+/* ---------- Glowing photo frames ---------- */
+.story-photo-frame, .moment-photo-frame {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+.story-photo-frame::before, .moment-photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, var(--gold), var(--lilac-light), var(--gold-light), var(--lilac), var(--gold));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: spin 6s linear infinite;
+  z-index: -1;
+}
+.story-photo-frame:hover {
+  transform: perspective(800px) rotateX(2deg) rotateY(-3deg) scale(1.015);
+}
+.moment-photo-frame:hover {
+  transform: rotate(-4deg) perspective(800px) rotateX(2deg) rotateY(3deg) scale(1.04);
+}
+.story-photo-frame:hover::before, .moment-photo-frame:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Button shimmer ---------- */
+.btn { position: relative; overflow: hidden; }
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+.btn:hover::before { left: 130%; }
+.btn:hover {
+  box-shadow: 0 14px 30px rgba(201, 166, 107, 0.4);
+}
+
+/* ---------- Countdown tick pulse ---------- */
+.countdown-box span.tick {
+  animation: countPulse 0.4s ease;
+}
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); text-shadow: 0 0 14px rgba(228, 201, 143, 0.9); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text, .hero-sparkle, .vtimeline::before, .story-photo-frame::before,
+  .moment-photo-frame::before, .btn::before, .countdown-box span.tick,
+  .hero-glow, .petal {
+    animation: none !important;
+  }
+  .scroll-progress { transition: none; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {

@@ -9,9 +9,21 @@ const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
+// ---------- Scroll progress bar ----------
+const scrollProgress = document.getElementById('scrollProgress');
+
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  if (scrollProgress) scrollProgress.style.width = pct + '%';
+}
+
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 40);
+  updateScrollProgress();
 });
+updateScrollProgress();
 
 navToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
@@ -62,10 +74,19 @@ function updateCountdown() {
   const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const secs = Math.floor((distance % (1000 * 60)) / 1000);
 
-  els.days.textContent = String(days).padStart(2, '0');
-  els.hours.textContent = String(hours).padStart(2, '0');
-  els.mins.textContent = String(mins).padStart(2, '0');
-  els.secs.textContent = String(secs).padStart(2, '0');
+  setDigit(els.days, String(days).padStart(2, '0'));
+  setDigit(els.hours, String(hours).padStart(2, '0'));
+  setDigit(els.mins, String(mins).padStart(2, '0'));
+  setDigit(els.secs, String(secs).padStart(2, '0'));
+}
+
+function setDigit(el, value) {
+  if (!el || el.textContent === value) return;
+  el.textContent = value;
+  el.classList.remove('tick');
+  // eslint-disable-next-line no-unused-expressions
+  void el.offsetWidth;
+  el.classList.add('tick');
 }
 
 updateCountdown();
@@ -115,3 +136,55 @@ function updateCameraGate() {
 }
 
 updateCameraGate();
+
+// ---------- Delight interactions (parallax + cursor sparkles) ----------
+// Skipped on touch devices and when the user prefers reduced motion.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+if (!prefersReducedMotion && isFinePointer) {
+  // Hero parallax: layers drift slightly opposite the cursor for depth.
+  const heroEl = document.getElementById('home');
+  const parallaxLayers = heroEl ? heroEl.querySelectorAll('[data-parallax]') : [];
+  let parallaxRaf = null;
+
+  if (heroEl && parallaxLayers.length) {
+    heroEl.addEventListener('mousemove', (e) => {
+      if (parallaxRaf) return;
+      parallaxRaf = requestAnimationFrame(() => {
+        const rect = heroEl.getBoundingClientRect();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+        parallaxLayers.forEach(layer => {
+          const factor = parseFloat(layer.dataset.parallax) || 0.05;
+          const maxShift = 26;
+          const x = Math.max(-maxShift, Math.min(maxShift, relX * factor * 100));
+          const y = Math.max(-maxShift, Math.min(maxShift, relY * factor * 100));
+          layer.style.setProperty('--px', `${x}px`);
+          layer.style.setProperty('--py', `${y}px`);
+        });
+        parallaxRaf = null;
+      });
+    });
+    heroEl.addEventListener('mouseleave', () => {
+      parallaxLayers.forEach(layer => {
+        layer.style.setProperty('--px', '0px');
+        layer.style.setProperty('--py', '0px');
+      });
+    });
+  }
+
+  // Cursor sparkle trail
+  let lastSpark = 0;
+  window.addEventListener('mousemove', (e) => {
+    const now = performance.now();
+    if (now - lastSpark < 60) return;
+    lastSpark = now;
+    const spark = document.createElement('div');
+    spark.className = 'cursor-spark';
+    spark.style.left = e.clientX + 'px';
+    spark.style.top = e.clientY + 'px';
+    document.body.appendChild(spark);
+    setTimeout(() => spark.remove(), 700);
+  });
+}
