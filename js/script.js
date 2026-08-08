@@ -187,10 +187,10 @@ if (!prefersReducedMotion && isFinePointer) {
   }
 }
 
-// Falling star trail: works for both mouse (desktop) and finger drag (touch).
+// Falling heart trail: works for both mouse (desktop) and finger drag (touch).
 if (!prefersReducedMotion) {
-  const sparkColors = ['var(--gold-light)', 'var(--gold)', 'var(--lilac-light)'];
-  const starPath = 'M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z';
+  const sparkColors = ['var(--gold-light)', 'var(--gold)', '#f2a6c1'];
+  const heartPath = 'M12 21s-7.5-4.6-10-9.3C.4 8.1 2.3 4 6 4c2 0 3.6 1.1 4.6 2.6C11.6 5.1 13.2 4 15.2 4c3.7 0 5.6 4.1 4 7.7C19.5 16.4 12 21 12 21z';
 
   function spawnSpark(x, y) {
     const svgNS = 'http://www.w3.org/2000/svg';
@@ -198,11 +198,14 @@ if (!prefersReducedMotion) {
     spark.setAttribute('viewBox', '0 0 24 24');
     spark.classList.add('cursor-spark');
     const path = document.createElementNS(svgNS, 'path');
-    path.setAttribute('d', starPath);
+    path.setAttribute('d', heartPath);
     path.setAttribute('fill', 'currentColor');
+    path.setAttribute('stroke', '#fff8ec');
+    path.setAttribute('stroke-width', '1');
     spark.appendChild(path);
 
-    const size = 8 + Math.random() * 8;
+    const isTouch = !isFinePointer;
+    const size = (isTouch ? 16 : 13) + Math.random() * (isTouch ? 12 : 10);
     const drift = (Math.random() - 0.5) * 40;
     spark.style.left = x + 'px';
     spark.style.top = y + 'px';
@@ -211,7 +214,7 @@ if (!prefersReducedMotion) {
     spark.style.setProperty('--spark-color', sparkColors[Math.floor(Math.random() * sparkColors.length)]);
 
     document.body.appendChild(spark);
-    setTimeout(() => spark.remove(), 1000);
+    setTimeout(() => spark.remove(), 1100);
   }
 
   let lastSpark = 0;
