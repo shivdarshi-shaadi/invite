@@ -123,6 +123,9 @@ ul { list-style: none; }
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 1rem;
@@ -131,6 +134,13 @@ ul { list-style: none; }
   transition: color 0.4s ease;
   white-space: nowrap;
   pointer-events: none;
+}
+.nav-tagline-mark {
+  height: 1.3em;
+  width: auto;
+}
+.nav-tagline-mark:last-child {
+  transform: scaleX(-1);
 }
 .navbar.scrolled .nav-tagline { color: var(--lilac); }
 .nav-links {
