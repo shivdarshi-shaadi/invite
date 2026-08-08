@@ -274,13 +274,12 @@ ul { list-style: none; }
   margin-top: 0.6rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
-.hero-shree-mark {
-  height: 1.4em;
-  width: auto;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
-}
-.hero-shree-mark:last-child {
-  transform: scaleX(-1);
+.hero-shree-text {
+  font-family: 'Yatra One', cursive;
+  font-weight: 400;
+  font-size: 1.15em;
+  color: var(--gold-light);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .hero-dates {
   color: var(--ivory);
