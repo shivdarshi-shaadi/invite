@@ -287,6 +287,19 @@ ul { list-style: none; }
   text-align: center;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
+.hero-hashtag::before {
+  content: '';
+  position: absolute;
+  inset: -55% -75%;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(201, 166, 107, 0.4), rgba(228, 201, 143, 0.12) 55%, transparent 75%);
+  animation: hashtagGlowPulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hashtagGlowPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
 .hero-gujarati {
   color: var(--gold-light);
   font-family: var(--font-heading);
@@ -312,6 +325,7 @@ ul { list-style: none; }
   margin-top: 2.5rem;
 }
 .countdown-box {
+  position: relative;
   background: rgba(245, 241, 246, 0.08);
   border: 1px solid rgba(228, 201, 143, 0.3);
   border-radius: 14px;
@@ -319,6 +333,21 @@ ul { list-style: none; }
   min-width: 70px;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
+}
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--gold-light), transparent, var(--lilac-light), transparent, var(--gold-light));
+  background-size: 300% 300%;
+  opacity: 0.55;
+  animation: gradientDrift 7s ease infinite;
+}
+@keyframes gradientDrift {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
 }
 .countdown-box span {
   display: block;
@@ -378,11 +407,24 @@ ul { list-style: none; }
   z-index: 2;
 }
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
   color: var(--lilac-light);
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.9rem;
   font-weight: 500;
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  transform: rotate(45deg);
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 .eyebrow-gujarati {
   font-family: var(--font-heading);
@@ -572,10 +614,27 @@ ul { list-style: none; }
   box-shadow: 0 0 0 4px var(--ivory), 0 0 0 5px var(--lilac-light);
 }
 .timeline-entry-content {
+  position: relative;
   background: #fff;
   border-radius: 16px;
   padding: 1.4rem 1.6rem;
   box-shadow: var(--shadow);
+}
+.timeline-entry-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, var(--gold), var(--lilac-light), var(--gold));
+  background-size: 200% 100%;
+  animation: topBarFlow 6s linear infinite;
+}
+@keyframes topBarFlow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
 }
 .timeline-time {
   display: inline-block;
@@ -755,6 +814,12 @@ ul { list-style: none; }
 .btn-primary {
   background: var(--gold);
   color: var(--lilac-dark);
+  animation: btnGlowPulse 2.6s ease-in-out infinite;
+}
+.btn-primary:hover { animation: none; }
+@keyframes btnGlowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 166, 107, 0.45); }
+  50% { box-shadow: 0 0 22px 5px rgba(201, 166, 107, 0.55); }
 }
 .btn-outline {
   border: 1.5px solid var(--gold-light);
@@ -982,7 +1047,8 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   .shimmer-text, .hero-sparkle, .vtimeline::before, .story-photo-frame::before,
   .moment-photo-frame::before, .btn::before, .countdown-box span.tick,
-  .hero-glow, .petal {
+  .hero-glow, .petal, .hero-hashtag::before, .timeline-entry-content::before,
+  .countdown-box::before, .btn-primary, .section-divider-mark {
     animation: none !important;
   }
   .scroll-progress { transition: none; }
