@@ -258,7 +258,7 @@ ul { list-style: none; }
 .hero-hashtag {
   position: absolute;
   right: 1.6rem;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   width: fit-content;
   color: var(--gold-light);
@@ -411,6 +411,7 @@ ul { list-style: none; }
   padding: 10px;
   background: linear-gradient(160deg, var(--gold-light), var(--gold));
   min-height: 420px;
+  width: 100%;
 }
 .story-photo {
   width: 100%;
@@ -718,4 +719,18 @@ ul { list-style: none; }
   .nav-toggle { display: flex; }
   .countdown { flex-wrap: wrap; }
   .countdown-box { min-width: 60px; padding: 0.7rem 0.8rem; }
+  .hero-names {
+    position: static;
+    transform: none;
+    width: auto;
+    margin: 0 auto 0.5rem;
+    font-size: clamp(2.4rem, 14vw, 3.5rem);
+  }
+  .hero-hashtag {
+    position: static;
+    transform: none;
+    width: auto;
+    margin: 1.5rem auto 0;
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
 }
