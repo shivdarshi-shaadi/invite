@@ -903,6 +903,14 @@ ul { list-style: none; }
   0% { background-position: 200% 0; }
   60%, 100% { background-position: -50% 0; }
 }
+/* .reveal-up and .shimmer-text both set the `animation` shorthand; without
+   this, whichever rule is later in the file silently wins and the other
+   animation (and its opacity/transform) never runs. Combine explicitly so
+   both play together when an element carries both classes. */
+.reveal-up.shimmer-text {
+  animation: revealUp 0.9s ease forwards, shimmerSweep 5s ease-in-out infinite;
+  animation-delay: var(--d, 0s), 0s;
+}
 
 /* ---------- Hero sparkles ---------- */
 .hero-sparkles {
