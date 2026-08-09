@@ -140,7 +140,7 @@ function updateCameraGate() {
   }
 
   if (cameraOpensBadge) {
-    const daysLeft = Math.ceil(distance / (1000 * 60 * 60 * 24));
+    const daysLeft = Math.floor(distance / (1000 * 60 * 60 * 24));
     cameraOpensBadge.textContent = daysLeft <= 1
       ? 'Opens tomorrow'
       : `Opens in ${daysLeft} days`;
