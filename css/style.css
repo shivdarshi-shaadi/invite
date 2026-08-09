@@ -277,7 +277,7 @@ ul { list-style: none; }
 .hero-hashtag {
   position: absolute;
   right: 1.6rem;
-  top: 50%;
+  top: 70.5%;
   transform: translateY(-50%);
   width: fit-content;
   color: var(--gold-light);
@@ -1114,7 +1114,8 @@ ul { list-style: none; }
     font-size: clamp(2.4rem, 14vw, 3.5rem);
   }
   .hero-hashtag {
-    position: static;
+    position: relative;
+    top: auto;
     transform: none;
     width: auto;
     margin: 1.5rem auto 0;
